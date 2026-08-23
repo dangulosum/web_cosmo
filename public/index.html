@@ -1,1 +1,299 @@
-Hola mundo
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoSMo - Grupo de Pesquisa</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       CABECERA Y NAVEGACIÓN (HEADER)
+       ========================================== -->
+  <header class="header">
+    <div class="logo">
+      <img class="logo-img" src="images/Principal - 2.png" alt="CoSMo Logo">
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#" data-target="inicio" class="active">Inicio</a></li>
+        <li><a href="#" data-target="equipo">Equipo</a></li>
+        <li><a href="#" data-target="proyectos">Proyectos</a></li>
+        <li><a href="#" data-target="contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       CONTENEDOR PRINCIPAL (SPA)
+       ========================================== -->
+  <main id="app-content">
+
+    <!-- VISTA 1: INICIO (Activa por defecto) -->
+    <div id="inicio" class="view active-view">
+      
+      <!-- Sección Hero / Carrusel -->
+      <section class="hero-section">
+        <div class="carousel-container">
+          <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Anterior">&#10094;</button>
+          
+          <div class="carousel-track-container">
+            <ul class="carousel-track" id="carouselTrack">
+              <li class="carousel-slide current-slide">
+                <div class="card-content">
+                  <h2>NOTICIAS GENERALES</h2>
+                  <p>Descripción o titular de la noticia o proyecto destacado del grupo de investigación.</p>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="card-content">
+                  <h2>INVESTIGACIÓN DESTACADA</h2>
+                  <p>Avances en publicaciones recientes e impacto académico.</p>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="card-content">
+                  <h2>INVESTIGACIÓN DESTACADA 2</h2>
+                  <p>Avances en publicaciones recientes e impacto académico.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-btn next-btn" id="nextBtn" aria-label="Siguiente">&#10095;</button>
+        </div>
+        
+        <div class="carousel-nav" id="carouselNav">
+          <button class="indicator current-slide" aria-label="Diapositiva 1"></button>
+          <button class="indicator" aria-label="Diapositiva 2"></button>
+          <button class="indicator" aria-label="Diapositiva 3"></button>
+        </div>
+      </section>
+
+      <!-- SECCIÓN CUERPO: ÁREAS DE PESQUISA (FONDO CLARO) -->
+        <section class="content-section areas-section">
+            <h2>Áreas de Investigación</h2>
+            <div class="grid-areas">
+                <div class="area-card">
+                    <div class="area-icon">🔬</div>
+                    <h3>Estadística</h3>
+                    <p>Descripción breve de la primera área principal de pesquisa.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">📊</div>
+                    <h3>Machine Learning</h3>
+                    <p>Descripción breve de la segunda área principal de pesquisa.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">💻</div>
+                    <h3>Medicina</h3>
+                    <p>Descripción breve de la tercera área principal de pesquisa.</p>
+                </div>
+            </div>
+        </section>
+
+      <!-- Sección Métricas -->
+      <section class="content-section metrics-section">
+        <h2>Nuestros Resultados</h2>
+        <div class="metrics-container">
+          <div class="metric-box">
+            <span class="metric-number">12+</span>
+            <span class="metric-label">Proyectos Activos</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-number">25</span>
+            <span class="metric-label">Artículos Q1</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-number">8</span>
+            <span class="metric-label">Tesistas</span>
+          </div>
+        </div>
+      </section>
+
+
+        <!-- SECCIÓN PUBLICACIÓN DESTACADA (FEATURED PAPER) -->
+        <section class="content-section spotlight-section">
+        <div class="spotlight-card">
+            <div class="spotlight-header">PUBLICACIÓN DESTACADA</div>
+            
+            <div class="spotlight-body">
+            <!-- Columna Izquierda: Imagen del Artículo / Investigador -->
+            <div class="spotlight-image-container">
+                <img src="images/articulo_test.png" alt="Portada del artículo científico" class="spotlight-img">
+            </div>
+
+            <!-- Columna Derecha: Información del Artículo -->
+            <div class="spotlight-info">
+                <div class="spotlight-content-top">
+                    <h3>Título de la Investigación o Artículo Científico</h3>
+                    <p class="authors">Por: D. Angulo et al. | Revista Q1 (2026)</p>
+                    <p class="summary">
+                        Resumen breve en 2 o 3 líneas sobre el logro principal del estudio y su impacto metodológico. Se explica el alcance de los resultados y su relevancia para la comunidad científica.
+                    </p>
+                </div>
+
+                <!-- Botones empujados al fondo para aprovechar la altura -->
+                <div class="spotlight-actions">
+                <a href="#" class="btn btn-primary">📄 Leer PDF</a>
+                <!-- <a href="#" class="btn btn-secondary">💻 Código / GitHub</a> -->
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+
+
+    </div>
+
+    <!-- VISTA 2: EQUIPO (Oculta por defecto) -->
+    <div id="equipo" class="view">
+      <section class="content-section">
+        <h2>Nuestro Equipo</h2>
+        <div class="team-grid">
+            <!-- LA GRILLA ES PARA 4 POR FILA -->
+            <div class="grid-areas">
+                <div class="area-card">
+                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>MG. JUAN PEREZ</h3>
+                    <p>Rol del investigador 1</p>
+                </div>
+                <div class="area-card">
+                   <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>DR. MG. LUIS SOUSA</h3>
+                    <p>Rol del investigador 2</p>
+                </div>
+                <div class="area-card">
+                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>DR. HILFRICH NORBRICK</h3>
+                    <p>Rol del investigador 3</p>
+                </div>
+                <div class="area-card">
+                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>MARKOV GAUSS</h3>
+                    <p>Rol del investigador 3</p>
+                </div>
+
+                <div class="area-card">
+                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>MG. JUAN PEREZ</h3>
+                    <p>Rol del investigador 1</p>
+                </div>
+                <div class="area-card">
+                   <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>DR. MG. LUIS SOUSA</h3>
+                    <p>Rol del investigador 2</p>
+                </div>
+                <div class="area-card">
+                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>DR. HILFRICH NORBRICK</h3>
+                    <p>Rol del investigador 3</p>
+                </div>
+                <div class="area-card">
+                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
+                    <h3>MARKOV GAUSS</h3>
+                    <p>Rol del investigador 3</p>
+                </div>
+                
+            </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VISTA 3: PROYECTOS (Oculta por defecto) -->
+    <div id="proyectos" class="view">
+      <section class="content-section">
+        <h2>Proyectos de Investigación</h2>
+        <div class="projects-list">
+
+          <article class="project-card">
+            <div class="box_art_proyectos">
+                <img src="images/articulo_test.png" alt="" class="img_art_proyectos">
+            </div>
+            <div>
+                <span class="status-badge active">En Curso</span>
+                <h3>Título del Proyecto de Investigación</h3>
+                <p>Investigadores:</p>
+                <p>Descripción resumida del proyecto</p>
+            </div>  
+        </article>
+
+          <article class="project-card">
+            <div class="box_art_proyectos">
+                <img src="images/articulo_test.png" alt="" class="img_art_proyectos">
+            </div>            
+            <div>
+                <span class="status-badge active">En Curso</span>
+                <h3>Título del Proyecto de Investigación</h3>
+                <p>Investigadores:</p>
+                <p>Descripción resumida del proyecto</p>
+            </div>  
+          </article>
+
+          <article class="project-card">
+            <div class="box_art_proyectos">
+                <img src="images/articulo_test.png" alt="" class="img_art_proyectos">
+            </div>
+            <div>
+                <span class="status-badge active">En Curso</span>
+                <h3>Título del Proyecto de Investigación</h3>
+                <p>Investigadores:</p>
+                <p>Descripción resumida del proyecto</p>
+            </div>  
+          </article>
+          
+          
+        </div>
+      </section>
+    </div>
+
+    <!-- VISTA 4: CONTACTO (Oculta por defecto) -->
+    <div id="contacto" class="view">
+      <section class="content-section">
+        <h2>Contacto</h2>
+        <div class="form_contact">
+            
+            <p>Nombre: </p><input type="text">
+            <p>Correo: </p><input type="text">
+            <p>Profesión: </p><input type="text">
+            <p>Motivo: </p><input type="text">
+            <p>Mensaje: </p><input type="text">
+            <p><button type="submit" class="btn_submit_contact">Enviar</button></p>
+            
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       PIE DE PÁGINA (FOOTER)
+       ========================================== -->
+  <footer class="footer">
+    <div class="datos_footer">
+        <p>Copyright &copy; 2026 CoSMo - Grupo de Pesquisa | UFBA</p>
+        <p>Desarrollado por dangulo</p>
+    </div>
+    <div class="social_media">
+        <!--<a href="#" class="btn btn-primary">📄 Leer PDF</a>-->
+
+        <a href="https://facebook.com" target="_blank" class="boton-social">
+            <img src="images/facebook_sqrd.png" alt="facebook">
+        </a>
+
+        <a href="https://instagram.com" target="_blank" class="boton-social">
+            <img src="images/instagram.png" alt="instagram">
+        </a>
+        
+        <a href="https://tiktok.com" target="_blank" class="boton-social">
+            <img src="images/tik-tok.png" alt="tiktok">
+        </a>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

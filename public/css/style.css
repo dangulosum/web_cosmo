@@ -1,0 +1,499 @@
+/* ==========================================================================
+   RESET & VARIABLES GLOBALES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #2a3038;         /* Fondo oscuro para el Hero / Header */
+  --bg-card-dark: #3a414b;    /* Tarjetas oscuras */
+  --bg-light: #f4f6f8;        /* Fondo claro al hacer scroll */
+  --bg-card-light: #ffffff;   /* Tarjetas sobre fondo claro */
+  --text-light: #f1f5f9;      /* Texto sobre fondo oscuro */
+  --text-dark: #1e293b;       /* Texto sobre fondo claro */
+  --text-muted: #94a3b8;      /* Texto secundario */
+  --accent-color: #a8e063;    /* Verde lima estilo CoSMo */
+  --accent-hover: #8ecf4c;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   HEADER & NAVEGACIÓN (STICKY)
+   ========================================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 5%;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition-speed);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  max-height: 45px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--accent-color);
+}
+
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   LÓGICA VISUAL SPA & ANIMACIONES
+   ========================================================================== */
+.view {
+  display: none;
+  width: 100%;
+}
+
+.view.active-view {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes de altura mínima para las vistas secundarias */
+#equipo,
+#proyectos,
+#contacto {
+  min-height: calc(100vh - 140px);
+  background-color: var(--bg-light);
+}
+
+/* ==========================================================================
+   SECCIÓN HERO (CARRUSEL DE NOTICIAS)
+   ========================================================================== */
+.hero-section {
+  min-height: 91vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 5%;
+  background-color: var(--bg-dark);
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background-color: #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  min-height: 500px;
+}
+
+.carousel-track {
+  display: flex;
+  list-style: none;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  padding: 8rem 3rem;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.card-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.card-content p {
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+  transition: color var(--transition-speed);
+}
+
+.carousel-btn:hover {
+  color: var(--accent-color);
+}
+
+.prev-btn { left: -40px; }
+.next-btn { right: -40px; }
+
+.carousel-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.indicator.current-slide {
+  background-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   VISTA INICIO - SECCIÓN AREAS INVESTIGACION
+   ========================================================================== */
+.team-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.team-card{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.member-photo{
+    transform: translateY(-5px);
+    max-height: 300px;
+    padding-left: 5%;
+    margin-bottom: 20px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    justify-content: center;
+}
+
+
+/* ==========================================================================
+   SECCIONES DE CUERPO (FONDO CLARO)
+   ========================================================================== */
+.content-section {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  padding: 5rem 10%;
+}
+
+.content-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+}
+
+.grid-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.area-card {
+  background-color: var(--bg-card-light);
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed);
+}
+
+.area-card:hover {
+  transform: translateY(-5px);
+}
+
+.area-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.metrics-section {
+  background-color: #ffffff;
+}
+
+.metrics-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.metric-box {
+  text-align: center;
+}
+
+.metric-number {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--bg-dark);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.spotlight-section {
+  background-color: var(--bg-light);
+}
+
+.spotlight-card {
+  background-color: var(--bg-card-light);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  min-height: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+}
+
+/* Grilla principal de 2 columnas */
+.spotlight-body {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* Columna fija para la imagen y flexible para el texto */
+  gap: 2.5rem;
+  flex-grow: 1; /* Ocupa el espacio restante del card */
+}
+
+/* Contenedor e Imagen de la columna izquierda */
+.spotlight-image-container {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #e2e8f0; /* Fondo placeholder si la imagen no carga */
+}
+
+.spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  display: block;
+}
+
+/* Columna derecha con distribución vertical completa */
+.spotlight-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empuja el contenido superior arriba y los botones abajo */
+  height: 100%;
+}
+
+.spotlight-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.authors {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.summary {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.spotlight-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem; /* Asegura separación si el texto es muy largo */
+}
+
+/* Adaptación responsiva para pantallas pequeñas */
+@media (max-width: 768px) {
+  .spotlight-body {
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna en móviles */
+    gap: 1.5rem;
+  }
+
+  .spotlight-image-container {
+    height: 200px;
+  }
+}
+
+
+/* ==========================================================================
+   NAV_BAR - CONTACTO
+   ========================================================================== */
+
+   .projects-list{
+    display: block;
+    gap: 5%;
+   }
+
+   .project-card{
+    border: solid;
+    border-color: black;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 5px;
+   }
+
+   .img_art_proyectos{
+    max-width: 300px;
+   }
+
+
+/* ==========================================================================
+   NAV_BAR - CONTACTO
+   ========================================================================== */
+
+.content-section .form_contact{
+    margin-left: 40%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+}
+
+.form_contact{
+    border: solid 0px;
+    border-radius: 4px;
+    padding: 2%;
+    max-width: 300px;
+    max-height: 600px;
+    background-color: var(--bg-dark);
+    color: var(--text-muted);
+    opacity: 80%;
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  background-color: var(--bg-dark);
+  color: var(--text-muted);
+  /*text-align: center;*/
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: 80% 13% 7%;
+  gap: 20px;
+}
+
+.datos_footer{
+    padding-left: 5%;
+}
+
+.social_media{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+}
+
+.boton-social {
+    display: flex; /* Permite aplicar dimensiones y márgenes correctamente */
+    transition: transform 0.2s ease, opacity 0.2s ease; /* Suaviza las animaciones */
+    justify-content: center;
+    align-content: center;
+}
+
+.boton-social img {
+  width: 40px;  /* Ajusta el tamaño del icono */
+  height: 40px; /* Mantiene el tamaño cuadrado */
+  display: block;
+  filter: invert(65%); /*Invertir el color de la imagen*/
+}
+
+/* Efecto visual cuando el usuario pasa el mouse por encima (Hover) */
+.boton-social:hover {
+  transform: scale(1.1); /* Agranda el botón un 10% */
+  opacity: 0.8;          /* Lo vuelve ligeramente transparente */
+}
+
+/* Efecto visual cuando el usuario hace clic (Active) */
+.boton-social:active {
+  transform: scale(0.95); /* Se encoge un poco simulanado una pulsación */
+}
