@@ -215,6 +215,70 @@ body {
 }
 
 /* ==========================================================================
+   VISTA INICIO - SECCIÓN DATOS DEL GRUPO
+   ========================================================================== */
+.we-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.spotlight-card_we {
+  padding: 2rem;
+  min-height: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grilla principal de 2 columnas */
+.spotlight-body_we {
+  display: grid;
+  grid-template-columns: 420px 1fr; /* Columna fija para la imagen y flexible para el texto */
+  gap: 2.5rem;
+  flex-grow: 1; /* Ocupa el espacio restante del card */
+}
+
+.spotlight-image-container_we {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #e2e8f0; /* Fondo placeholder si la imagen no carga */
+}
+
+.spotlight-img_we {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  display: block;
+}
+
+/* Columna derecha con distribución vertical completa */
+.spotlight-info_we {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empuja el contenido superior arriba y los botones abajo */
+  height: 100%;
+}
+
+.spotlight-info_we h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.summary_we {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ==========================================================================
    VISTA INICIO - SECCIÓN AREAS INVESTIGACION
    ========================================================================== */
 .team-grid{
@@ -241,6 +305,16 @@ body {
     justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .spotlight-body {
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna en móviles */
+    gap: 1.5rem;
+  }
+
+  .spotlight-image-container {
+    height: 200px;
+  }
+}
 
 /* ==========================================================================
    SECCIONES DE CUERPO (FONDO CLARO)
@@ -407,7 +481,7 @@ body {
 
 
 /* ==========================================================================
-   NAV_BAR - CONTACTO
+   VISTA - PROYECTO
    ========================================================================== */
 
    .projects-list{
@@ -427,9 +501,71 @@ body {
     max-width: 300px;
    }
 
+/* ========================================================================== */
+/* ===============  VISTA - EQUIPO ========================================== */
+/* ========================================================================== */
+.grid-areas_equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.team-grid_equipo{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.team-card_equipo{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.member-photo_equipo{
+    transform: translateY(-5px);
+    max-height: 300px;
+    max-width: 210px;
+    padding-left: 5%;
+    margin-bottom: 20px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    justify-content: center;
+
+    /* LAS PROPIEDADES CLAVE: */
+    object-fit: cover;   /* Escala la imagen para llenar la caja manteniendo su proporción */
+    object-position: center; /* Centra la imagen para que el recorte sea simétrico */
+}
+
+@media (max-width: 768px) {
+  .spotlight-body_equipo {
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna en móviles */
+    gap: 1.5rem;
+  }
+
+  .spotlight-image-container_equipo {
+    height: 200px;
+  }
+}
+
+.area-card_equipo {
+  background-color: var(--bg-card-light);
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed);
+  overflow: hidden;
+}
+
+.area-card_equipo:hover {
+  transform: translateY(-5px);
+}
 
 /* ==========================================================================
-   NAV_BAR - CONTACTO
+   VISTA - CONTACTO
    ========================================================================== */
 
 .content-section .form_contact{
@@ -457,15 +593,42 @@ body {
   color: var(--text-muted);
   /*text-align: center;*/
   padding: 2rem 1rem;
-  font-size: 0.9rem;
+  /*font-size: 0.9rem;*/
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: grid;
   grid-template-columns: 80% 13% 7%;
   gap: 20px;
+  align-content: center;
 }
 
 .datos_footer{
     padding-left: 5%;
+}
+
+.contacto_footer{
+    margin-bottom: 5px;
+    margin-top: -10px;
+}
+
+.contacto_footer h1{
+    font-size: 1.2rem;
+}
+
+.contacto_footer p{
+    font-size: 0.9rem;
+    display: flex;
+    align-content: center;
+}
+
+.img_contacto_footer{
+    filter: invert(65%);
+    max-inline-size: 1.2rem;
+    margin-right: 3px;
+}
+
+.derechos_footer{
+    font-size: 0.7rem;
+    margin-top: 1rem;
 }
 
 .social_media{

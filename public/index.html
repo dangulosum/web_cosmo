@@ -20,7 +20,7 @@
         <li><a href="#" data-target="inicio" class="active">Inicio</a></li>
         <li><a href="#" data-target="equipo">Equipo</a></li>
         <li><a href="#" data-target="proyectos">Proyectos</a></li>
-        <li><a href="#" data-target="contacto">Contacto</a></li>
+        <!--<li><a href="#" data-target="contacto">Contacto</a></li>-->
       </ul>
     </nav>
   </header>
@@ -70,46 +70,95 @@
         </div>
       </section>
 
+<!------------------------------------------------------------------------------------------>
+<!---------------------- CONTENIDO DEL CUERPO (VIST INICIO) -------------------------------->
+<!------------------------------------------------------------------------------------------>
+
+        <!----------------------------------------------------------------->
+        <!----- (INICIO) SUB SECCION 1 - DATOS DEL GRUPO DE PESQUISA ------>
+        <!----------------------------------------------------------------->
+        <section class="content-section metrics-section">
+            <div class="we-container">
+                <div class="spotlight-card_we">
+                    <div class="spotlight-body_we">
+                    <!-- Columna Izquierda: Imagen grupo pesquisa / Descripción del grupo -->
+                        <div class="spotlight-image-container_we">
+                            <img src="images/img_grupo.jpeg" alt="Portada del artículo científico" class="spotlight-img_we">
+                        </div>
+
+                        <!-- Columna Derecha: Información del Artículo -->
+                        <div class="spotlight-info_we">
+                            <div class="spotlight-content-top_we">
+                                <h3>Impulsando el futuro de los datos: Grupo CoSMo</h3>
+                                <p class="summary_we">
+                                    En un mundo donde los datos son el activo más valioso, el grupo CoSMo de la UFBA lidera la investigación en Modelado Estadístico Complejo. No solo analizamos información; desarrollamos la metodología detrás de la ciencia de datos.
+                                </p>    
+                                <p class="summary_we">
+                                    ¿Qué hacemos?
+                                </p>    
+                                <p class="summary_we"></p>
+                                    Transformamos la teoría en herramientas prácticas. Desde la Estadística Computacional hasta el manejo de Big Data, nuestro equipo —liderado por el Prof. Jalmar Farfan— trabaja en la frontera del conocimiento para resolver problemas de regresión con errores de medida y modelos de predicción de alta precisión.
+                                </p>
+                                <p class="summary_we"></p>    
+                                    Excelencia UFBA:
+                                </p>
+                                <p class="summary_we"></p>    
+                                    Vinculados al IME-UFBA en Salvador, Bahia, somos un núcleo de innovación académica que conecta la investigación científica certificada por el CNPq con las demandas tecnológicas globales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
       <!-- SECCIÓN CUERPO: ÁREAS DE PESQUISA (FONDO CLARO) -->
         <section class="content-section areas-section">
             <h2>Áreas de Investigación</h2>
             <div class="grid-areas">
                 <div class="area-card">
                     <div class="area-icon">🔬</div>
-                    <h3>Estadística</h3>
-                    <p>Descripción breve de la primera área principal de pesquisa.</p>
+                    <h3>Modelos Lineares Generalizados Mistos (GLMM)</h3>
+                    <p>Desarrollo de técnicas para analizar datos con estructuras complejas, incorporando efectos fijos y aleatorios para capturar la variabilidad en poblaciones heterogéneas</p>
                 </div>
                 <div class="area-card">
                     <div class="area-icon">📊</div>
-                    <h3>Machine Learning</h3>
-                    <p>Descripción breve de la segunda área principal de pesquisa.</p>
+                    <h3>Modelos de Regressão com Erros de Medida</h3>
+                    <p>Metodologías diseñadas para corregir sesgos y mejorar la precisión de las predicciones cuando las variables explicativas presentan fallas o imprecisiones en su recolección</p>
                 </div>
                 <div class="area-card">
                     <div class="area-icon">💻</div>
-                    <h3>Medicina</h3>
-                    <p>Descripción breve de la tercera área principal de pesquisa.</p>
+                    <h3>Análise de Sobrevivência</h3>
+                    <p>Modelado estadístico del tiempo hasta la ocurrencia de un evento, esencial en estudios médicos, de confiabilidad industrial y ciencias sociales</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">💻</div>
+                    <h3>Estatística Computacional</h3>
+                    <p>Aplicación de algoritmos intensivos y simulación numérica para resolver modelos que no tienen soluciones analíticas directas, optimizando procesos de inferencia</p>
                 </div>
             </div>
         </section>
 
-      <!-- Sección Métricas -->
-      <section class="content-section metrics-section">
-        <h2>Nuestros Resultados</h2>
-        <div class="metrics-container">
-          <div class="metric-box">
-            <span class="metric-number">12+</span>
-            <span class="metric-label">Proyectos Activos</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-number">25</span>
-            <span class="metric-label">Artículos Q1</span>
-          </div>
-          <div class="metric-box">
-            <span class="metric-number">8</span>
-            <span class="metric-label">Tesistas</span>
-          </div>
-        </div>
-      </section>
+        <!-- Sección Métricas -->
+        <section class="content-section metrics-section">
+            <h2>Nuestros Resultados</h2>
+            <div class="metrics-container">
+            <div class="metric-box">
+                <span class="metric-number">12+</span>
+                <span class="metric-label">Proyectos Activos</span>
+            </div>
+            <div class="metric-box">
+                <span class="metric-number">25</span>
+                <span class="metric-label">Artículos Q1</span>
+            </div>
+            <div class="metric-box">
+                <span class="metric-number">8</span>
+                <span class="metric-label">Tesistas</span>
+            </div>
+            </div>
+        </section>
 
 
         <!-- SECCIÓN PUBLICACIÓN DESTACADA (FEATURED PAPER) -->
@@ -144,59 +193,41 @@
         </section>
 
 
-
-
     </div>
 
     <!-- VISTA 2: EQUIPO (Oculta por defecto) -->
     <div id="equipo" class="view">
       <section class="content-section">
         <h2>Nuestro Equipo</h2>
-        <div class="team-grid">
+        <div class="team-grid_equipo">
             <!-- LA GRILLA ES PARA 4 POR FILA -->
-            <div class="grid-areas">
-                <div class="area-card">
-                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>MG. JUAN PEREZ</h3>
+            <div class="grid-areas_equipo">
+                <div class="area-card_equipo">
+                    <img class="member-photo_equipo" src="images/equipo/photo-jalmar.png" alt="img_equipo">
+                    <h3>JALMAR CARRASCO</h3>
                     <p>Rol del investigador 1</p>
                 </div>
-                <div class="area-card">
-                   <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>DR. MG. LUIS SOUSA</h3>
+                <div class="area-card_equipo">
+                   <img class="member-photo_equipo" src="images/equipo/IMG-20230527-WA0006.jpg" alt="img_equipo">
+                    <h3>LIZANDRA </h3>
                     <p>Rol del investigador 2</p>
                 </div>
-                <div class="area-card">
-                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>DR. HILFRICH NORBRICK</h3>
+                <div class="area-card_equipo">
+                    <img class="member-photo_equipo" src="images/equipo/foto-lucas_vieira.png" alt="img_equipo">
+                    <h3>LUCAS VIEIRA</h3>
                     <p>Rol del investigador 3</p>
                 </div>
-                <div class="area-card">
-                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>MARKOV GAUSS</h3>
+                <div class="area-card_equipo">
+                    <img class="member-photo_equipo" src="images/equipo/Cristian.png" alt="img_equipo">
+                    <h3>CRISTIAN</h3>
                     <p>Rol del investigador 3</p>
                 </div>
 
-                <div class="area-card">
-                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>MG. JUAN PEREZ</h3>
+                <div class="area-card_equipo">
+                    <img class="member-photo_equipo" src="images/equipo/Foto_Sandro Lins.jpg" alt="img_equipo">
+                    <h3>SANDRO LINS</h3>
                     <p>Rol del investigador 1</p>
                 </div>
-                <div class="area-card">
-                   <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>DR. MG. LUIS SOUSA</h3>
-                    <p>Rol del investigador 2</p>
-                </div>
-                <div class="area-card">
-                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>DR. HILFRICH NORBRICK</h3>
-                    <p>Rol del investigador 3</p>
-                </div>
-                <div class="area-card">
-                    <img class="member-photo" src="images/img_investigador.png" alt="img_equipo">
-                    <h3>MARKOV GAUSS</h3>
-                    <p>Rol del investigador 3</p>
-                </div>
-                
             </div>
         </div>
       </section>
@@ -217,6 +248,7 @@
                 <h3>Título del Proyecto de Investigación</h3>
                 <p>Investigadores:</p>
                 <p>Descripción resumida del proyecto</p>
+                <p>url del proyecto a repo externo</p>
             </div>  
         </article>
 
@@ -229,6 +261,7 @@
                 <h3>Título del Proyecto de Investigación</h3>
                 <p>Investigadores:</p>
                 <p>Descripción resumida del proyecto</p>
+                <p>url del proyecto a repo externo</p>
             </div>  
           </article>
 
@@ -241,6 +274,7 @@
                 <h3>Título del Proyecto de Investigación</h3>
                 <p>Investigadores:</p>
                 <p>Descripción resumida del proyecto</p>
+                <p>url del proyecto a repo externo</p>
             </div>  
           </article>
           
@@ -273,8 +307,14 @@
        ========================================== -->
   <footer class="footer">
     <div class="datos_footer">
-        <p>Copyright &copy; 2026 CoSMo - Grupo de Pesquisa | UFBA</p>
-        <p>Desarrollado por dangulo</p>
+        <div class="contacto_footer">
+            <h1>Contacto: </h1>
+            <p><img class="img_contacto_footer" src="images/email.png" alt="email">carrasco.jalmar@ufba.br</p>
+        </div>
+        <div class="derechos_footer">
+            <p>Copyright &copy; 2026 CoSMo - Grupo de Pesquisa | UFBA</p>
+            <p>Desarrollado por dangulo</p>
+        </div>
     </div>
     <div class="social_media">
         <!--<a href="#" class="btn btn-primary">📄 Leer PDF</a>-->
