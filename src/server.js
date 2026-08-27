@@ -1,25 +1,49 @@
-//1. IMPORTAR LIBRERIAS
-const express = require('express'); //importar marco de trabajo
-const path = require('path'); //importar método para gestionar rutas
+const express = require('express');
+const mysql = require('mysql2/promise');
+const cors = require('cors');
+const path = require('path');
 
-//2. INICIALIZAR APLICACION Y PUERTO
-const app = express(); //crear instancia de servidor
-const PORT = process.env.PORT || 3000; //toma puerto activo o asigna uno (en este caso 3000)
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-//3. GESTION DEL TRAFICO EN LA WEB
-// Servir archivos estáticos de la carpeta 'public'
-app.use(express.static(path.join(__dirname, '../public'))); //indicamos que public tiene los archivos visuales
+// 1. Apuntar los archivos estáticos a la carpeta public
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Middleware para procesar JSON
-app.use(express.json()); //indicamos al servidor que lea archivos en json
+// Configuración de MySQL
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'cosmo_db',
+  waitForConnections: true,
+  connectionLimit: 10
+});
 
-//4. END POINT - RUTA D EPRUEBA
-// Ruta de prueba
-app.get('/api/ping', (req, res) => {
-  res.json({ message: 'Servidor funcionando correctamente' });
-}); //escuhar petición del usuario y mostrar resultado
+// 2. Endpoints de la API
+app.get('/api/miembros', async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT * FROM miembros WHERE activo = TRUE ORDER BY orden ASC');
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-//5. ENCENDER SERVIDOR
-app.listen(PORT, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
-}); //activar servidor cuando se escuchan peticiones del puerto activo o 3000
+app.get('/api/proyectos', async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT * FROM proyectos ORDER BY fecha_creacion DESC');
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// 3. Fallback para entregar index.html desde la carpeta public
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+app.listen(3000, () => {
+  console.log('Servidor activo en http://localhost:3000');
+});
