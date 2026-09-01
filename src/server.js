@@ -20,7 +20,11 @@ const pool = mysql.createPool({
   connectionLimit: 10
 });
 
+// ==========================================
 // 2. Endpoints de la API
+// ==========================================
+
+// Endpoint: Miembros
 app.get('/api/miembros', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM miembros WHERE activo = TRUE ORDER BY orden ASC');
@@ -30,6 +34,7 @@ app.get('/api/miembros', async (req, res) => {
   }
 });
 
+// Endpoint: Proyectos
 app.get('/api/proyectos', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM proyectos ORDER BY fecha_creacion DESC');
@@ -39,11 +44,28 @@ app.get('/api/proyectos', async (req, res) => {
   }
 });
 
-// 3. Fallback para entregar index.html desde la carpeta public
+// Endpoint: Áreas de Investigación (Filtrado por estado activo)
+app.get('/api/areas', async (req, res) => {
+  try {
+    const [rows] = await pool.query(`
+      SELECT area_pesquisa, img_area, description_area 
+      FROM areas_pesquisa 
+      WHERE estado_area = 'activo'
+    `);
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ==========================================
+// 3. Fallback para entregar index.html (SIEMPRE AL FINAL DE TODAS LAS RUTAS)
+// ==========================================
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+// Inicio del servidor
 app.listen(3000, () => {
   console.log('Servidor activo en http://localhost:3000');
 });

@@ -15,11 +15,18 @@
     <div class="logo">
       <img class="logo-img" src="images/Principal - 2.png" alt="CoSMo Logo">
     </div>
-    <nav class="nav">
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <img src="images/menu_tipo_1.png" alt="icon_sandwich"><!-- &#9776; <--- Ícono de 3 líneas (Sandwich) -->
+    </button>
+
+    <nav class="nav" id="navMenu">
       <ul>
-        <li><a href="#" data-target="inicio" class="active">Inicio</a></li>
-        <li><a href="#" data-target="equipo">Equipo</a></li>
-        <li><a href="#" data-target="proyectos">Proyectos</a></li>
+        <li><a href="#" data-target="inicio" class="active">Início</a></li>
+        <li><a href="#" data-target="equipo">Equipe</a></li>
+        <li><a href="#" data-target="proyectos">Projetos</a></li>
+        <!--<li><a href="#" data-target="proyectos">Intranet</a></li>-->
         <!--<li><a href="#" data-target="contacto">Contacto</a></li>-->
       </ul>
     </nav>
@@ -40,24 +47,15 @@
           
           <div class="carousel-track-container">
             <ul class="carousel-track" id="carouselTrack">
-              <li class="carousel-slide current-slide">
-                <div class="card-content">
-                  <h2>NOTICIAS GENERALES</h2>
-                  <p>Descripción o titular de la noticia o proyecto destacado del grupo de investigación.</p>
-                </div>
-              </li>
-              <li class="carousel-slide">
-                <div class="card-content">
-                  <h2>INVESTIGACIÓN DESTACADA</h2>
-                  <p>Avances en publicaciones recientes e impacto académico.</p>
-                </div>
-              </li>
-              <li class="carousel-slide">
-                <div class="card-content">
-                  <h2>INVESTIGACIÓN DESTACADA 2</h2>
-                  <p>Avances en publicaciones recientes e impacto académico.</p>
-                </div>
-              </li>
+                <li class="carousel-slide current-slide">
+                    <img src="images/carrusel/carrusel_1.jpeg" alt="Noticia General - CoSMo" class="carousel-img">
+                </li>
+                <li class="carousel-slide">
+                    <img src="images/carrusel/carrusel_2.jpeg" alt="Investigación Destacada" class="carousel-img">
+                </li>
+                <li class="carousel-slide">
+                    <img src="images/carrusel/carrusel_3.jpeg" alt="Proyectos e Innovación" class="carousel-img">
+                </li>
             </ul>
           </div>
           <button class="carousel-btn next-btn" id="nextBtn" aria-label="Siguiente">&#10095;</button>
@@ -89,17 +87,17 @@
                         <!-- Columna Derecha: Información del Artículo -->
                         <div class="spotlight-info_we">
                             <div class="spotlight-content-top_we">
-                                <h3>Impulsando el futuro de los datos: Grupo CoSMo</h3>
+                                <h3>Impulsionando o futuro dos dados: Grupo CoSMo</h3>
                                 <p class="summary_we">
-                                    En un mundo donde los datos son el activo más valioso, el grupo CoSMo de la UFBA lidera la investigación en Modelado Estadístico Complejo. No solo analizamos información; desarrollamos la metodología detrás de la ciencia de datos.
+                                    Em um mundo onde os dados são o ativo mais valioso, o grupo CoSMo da UFBA lidera a pesquisa em Modelagem Estatística Complexa. Não apenas analisamos informações; desenvolvemos a metodologia por trás da ciência de dados.
                                 </p>    
                                 <p class="summary_we">
-                                    <strong>¿Qué hacemos?</strong><br>
-                                    Transformamos la teoría en herramientas prácticas. Desde la Estadística Computacional hasta el manejo de Big Data, nuestro equipo —liderado por el Prof. Jalmar Farfan— trabaja en la frontera del conocimiento para resolver problemas de regresión con errores de medida y modelos de predicción de alta precisión.
+                                    <strong>¿O que fazemos??</strong><br>
+                                    Transformamos teoria em ferramentas práticas. Da Estatística Computacional ao manejo de Big Data, nossa equipe — liderada pelo Prof. Jalmar Farfan — atua na fronteira do conhecimento para resolver problemas de regressão com erros de medição e modelos de previsão de alta precisão.
                                 </p>
                                 <p class="summary_we">
-                                    <strong>Excelencia UFBA:</strong><br>
-                                    Vinculados al IME-UFBA en Salvador, Bahia, somos un núcleo de innovación académica que conecta la investigación científica certificada por el CNPq con las demandas tecnológicas globales.
+                                    <strong>Excelência UFBA:</strong><br>
+                                    Vinculados ao IME-UFBA em Salvador, Bahia, somos um núcleo de inovação acadêmica que conecta a pesquisa científica certificada pelo CNPq às demandas tecnológicas globais.
                                 </p>
                             </div>
                         </div>
@@ -112,47 +110,49 @@
 
       <!-- SECCIÓN CUERPO: ÁREAS DE PESQUISA (FONDO CLARO) -->
         <section class="content-section areas-section">
-            <h2>Áreas de Investigación</h2>
+            <h2>Áreas de Pesquisa</h2>
             <div class="grid-areas">
+                <!--
                 <div class="area-card">
-                    <div class="area-icon">🔬</div>
+                    <div class="area-icon"><img src="images/panel.png" alt="kpi"></div>
                     <h3>Modelos Lineares Generalizados Mistos (GLMM)</h3>
                     <p>Desarrollo de técnicas para analizar datos con estructuras complejas, incorporando efectos fijos y aleatorios para capturar la variabilidad en poblaciones heterogéneas</p>
                 </div>
                 <div class="area-card">
-                    <div class="area-icon">📊</div>
+                    <div class="area-icon"><img src="images/panel.png" alt="kpi"></div>
                     <h3>Modelos de Regressão com Erros de Medida</h3>
                     <p>Metodologías diseñadas para corregir sesgos y mejorar la precisión de las predicciones cuando las variables explicativas presentan fallas o imprecisiones en su recolección</p>
                 </div>
                 <div class="area-card">
-                    <div class="area-icon">💻</div>
+                    <div class="area-icon"><img src="images/panel.png" alt="kpi"></div>
                     <h3>Análise de Sobrevivência</h3>
                     <p>Modelado estadístico del tiempo hasta la ocurrencia de un evento, esencial en estudios médicos, de confiabilidad industrial y ciencias sociales</p>
                 </div>
                 <div class="area-card">
-                    <div class="area-icon">💻</div>
+                    <div class="area-icon"><img src="images/panel.png" alt="kpi"></div>
                     <h3>Estatística Computacional</h3>
                     <p>Aplicación de algoritmos intensivos y simulación numérica para resolver modelos que no tienen soluciones analíticas directas, optimizando procesos de inferencia</p>
                 </div>
+                -->
             </div>
         </section>
 
         <!-- Sección Métricas -->
         <section class="content-section metrics-section">
-            <h2>Nuestros Resultados</h2>
+            <h2>Áreas de Pesquisa</h2>
             <div class="metrics-container">
-            <div class="metric-box">
-                <span class="metric-number">12+</span>
-                <span class="metric-label">Proyectos Activos</span>
-            </div>
-            <div class="metric-box">
-                <span class="metric-number">25</span>
-                <span class="metric-label">Artículos Q1</span>
-            </div>
-            <div class="metric-box">
-                <span class="metric-number">8</span>
-                <span class="metric-label">Tesistas</span>
-            </div>
+                <div class="metric-box">
+                    <span class="metric-number">12+</span>
+                    <span class="metric-label">Projetos Ativos</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-number">25</span>
+                    <span class="metric-label">Artigos Q1</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-number">8</span>
+                    <span class="metric-label">Pesquisadores</span>
+                </div>
             </div>
         </section>
 
@@ -160,30 +160,35 @@
         <!-- SECCIÓN PUBLICACIÓN DESTACADA (FEATURED PAPER) -->
         <section class="content-section spotlight-section">
         <div class="spotlight-card">
-            <div class="spotlight-header">PUBLICACIÓN DESTACADA</div>
+            <div class="spotlight-header">PUBLICAÇÃO EM DESTAQUE</div>
             
-            <div class="spotlight-body">
-            <!-- Columna Izquierda: Imagen del Artículo / Investigador -->
-            <div class="spotlight-image-container">
-                <img src="images/articulo_test.png" alt="Portada del artículo científico" class="spotlight-img">
-            </div>
-
-            <!-- Columna Derecha: Información del Artículo -->
-            <div class="spotlight-info">
-                <div class="spotlight-content-top">
-                    <h3>Título de la Investigación o Artículo Científico</h3>
-                    <p class="authors">Por: D. Angulo et al. | Revista Q1 (2026)</p>
-                    <p class="summary">
-                        Resumen breve en 2 o 3 líneas sobre el logro principal del estudio y su impacto metodológico. Se explica el alcance de los resultados y su relevancia para la comunidad científica.
-                    </p>
+                <div class="spotlight-body">
+                <!-- Columna Izquierda: Imagen del Artículo / Investigador -->
+                <div class="spotlight-image-container">
+                    <img id="destacado-img" src="images/articulo_test.png" alt="Portada del artículo científico" class="spotlight-img">
                 </div>
 
-                <!-- Botones empujados al fondo para aprovechar la altura -->
-                <div class="spotlight-actions">
-                <a href="#" class="btn btn-primary">📄 Leer PDF</a>
-                <!-- <a href="#" class="btn btn-secondary">💻 Código / GitHub</a> -->
+                <!-- Columna Derecha: Información del Artículo -->
+                <div class="spotlight-info">
+                    <div class="spotlight-content-top">
+                        <h3 id="destacado-titulo">Título de la Investigación o Artículo Científico</h3>
+                        <p class="authors" id="destacado-autores">Por: D. Angulo et al. | Revista Q1 (2026)</p>
+                        <p class="status_proyecto" style="margin-bottom: 0.8rem;">
+                            <span id="destacado-indexacion" class="destacado-indexacion"></span>
+                        </p>
+                        <p class="summary" id="destacado-resumen">
+                            Resumen breve en 2 o 3 líneas sobre el logro principal del estudio y su impacto metodológico. Se explica el alcance de los resultados y su relevancia para la comunidad científica.
+                        </p>
+                    </div>
+
+                    <!-- Botones empujados al fondo para aprovechar la altura -->
+                    <div class="spotlight-actions">
+                        <!--<a href="#" class="btn btn-primary">Ver proyecto</a>-->
+                        <button id="btn-ver-destacado" class="btn btn-primary" style="cursor: pointer; border: none;">Ver projeto</button>
+                    <!-- <a href="#" class="btn btn-secondary">💻 Código / GitHub</a> -->
+                    </div>
                 </div>
-            </div>
+
             </div>
         </div>
         </section>
@@ -196,7 +201,7 @@
          ========================================================================== -->
     <div id="equipo" class="view">
         <section class="content-section">
-            <h2 class="section-title">Nuestro Equipo</h2>
+            <h2 class="section-title">Nossa Equipe</h2>
             <div class="team-grid">
                 
                 <!-- Integrante 1 
@@ -276,7 +281,7 @@
     <!-- VISTA 3: PROYECTOS (Oculta por defecto) -->
     <div id="proyectos" class="view">
       <section class="content-section">
-        <h2>Proyectos de Investigación</h2>
+        <h2>Projetos de Pesquisa</h2>
         <div class="projects-list">
 
           <!--  
@@ -355,13 +360,13 @@
             </div>  
           </article>          
           -->
-          
+
         </div>
 
         <div class="pagination-container" id="paginationProyectos">
-            <button class="pagination-btn" id="prevPageBtn" disabled>&laquo; Anterior</button>
+            <button class="pagination-btn" id="prevPageBtn" disabled>&laquo; Antigo</button>
             <div class="pagination-numbers" id="paginationNumbers"></div>
-            <button class="pagination-btn" id="nextPageBtn">Siguiente &raquo;</button>
+            <button class="pagination-btn" id="nextPageBtn">Próximo &raquo;</button>
         </div>
 
       </section>
@@ -390,42 +395,42 @@
        PIE DE PÁGINA (FOOTER)
        ========================================== -->
   <footer class="footer">
-        <div class="datos_footer">
-            <div class="contacto_footer">
-                <h1>Contacto: </h1>
-                <p><img class="img_contacto_footer" src="images/email.png" alt="email">carrasco.jalmar@ufba.br</p>
-            </div>
-            <div class="direccion_footer">
-                <h1>Dirección: </h1>
-                <p>Instituto de Matemática e Estatística (IME) - UFBA</p>
-                <p>Av. Milton Santos, s/n - Campus de Ondina</p>
-                <p>CEP: 40170-110 | Salvador - BA, Brasil</p>
-            </div>
+    <div class="datos_footer">
+        <div class="contacto_footer">
+            <h1>Contato: </h1>
+            <p><img class="img_contacto_footer" src="images/email.png" alt="email">carrasco.jalmar@ufba.br</p>
+        </div>
+        <div class="direccion_footer">
+            <h1>Endereço: </h1>
+            <p>Instituto de Matemática e Estatística (IME) - UFBA</p>
+            <p>Av. Milton Santos, s/n - Campus de Ondina</p>
+            <p>CEP: 40170-110 | Salvador - BA, Brasil</p>
+        </div>
 
-            
-            <div class="social_media">
-                <div class="title_social_media">
-                    <h1>Siguenos:</h1>
-                </div>    
-                <div class="btn_social_media">
-                    <a href="https://facebook.com" target="_blank" class="boton-social">
-                        <img src="images/facebook_sqrd.png" alt="facebook">
-                    </a>
+        
+        <div class="social_media">
+            <div class="title_social_media">
+                <h1>Siga-nos:</h1>
+            </div>    
+            <div class="btn_social_media">
+                <a href="https://facebook.com" target="_blank" class="boton-social">
+                    <img src="images/facebook_sqrd.png" alt="facebook">
+                </a>
 
-                    <a href="https://instagram.com" target="_blank" class="boton-social">
-                        <img src="images/instagram.png" alt="instagram">
-                    </a>
-                    
-                    <a href="https://tiktok.com" target="_blank" class="boton-social">
-                        <img src="images/tik-tok.png" alt="tiktok">
-                    </a>
-                </div>
+                <a href="https://instagram.com" target="_blank" class="boton-social">
+                    <img src="images/instagram.png" alt="instagram">
+                </a>
+                
+                <a href="https://tiktok.com" target="_blank" class="boton-social">
+                    <img src="images/tik-tok.png" alt="tiktok">
+                </a>
             </div>
         </div>
+    </div>
 
     <div class="derechos_footer">
         <p>Copyright &copy; 2026 CoSMo - Grupo de Pesquisa | UFBA</p>
-        <p>Desarrollado por dangulo</p>
+        <p>Developed by dangulo</p>
     </div>
 
   </footer>

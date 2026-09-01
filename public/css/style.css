@@ -44,6 +44,63 @@ body {
   transition: background-color var(--transition-speed);
 }
 
+/* Botón Hamburguesa (oculto por defecto en pantallas grandes) */
+
+.menu-toggle {
+  display: none; /* Oculto por defecto en pantallas grandes */
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.menu-toggle img {
+  width: 32px; /* Ajusta el ancho deseado del icono */
+  height: 32px; /* Ajusta el alto deseado */
+  display: block;
+  object-fit: contain;
+  transition: transform var(--transition-speed, 0.3s) ease;
+  filter: invert(90%);
+}
+
+.menu-toggle img:hover {
+  transform: scale(1.1); /* Efecto hover suave al pasar el cursor */
+}
+
+/* Comportamiento Responsive para tablets/celulares */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex; /* Muestra el botón y alinea la imagen al centro */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav {
+    display: none; /* Oculta el menú por defecto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Clase que activa la visibilidad al pulsar el botón */
+  .nav.nav-open {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -122,7 +179,7 @@ body {
    SECCIÓN HERO (CARRUSEL DE NOTICIAS)
    ========================================================================== */
 .hero-section {
-  min-height: calc(100vh - 70px); /* Ocupa todo el alto de la pantalla */
+  min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,9 +191,16 @@ body {
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 1300px; /* Ancho máximo amplio */
+  max-width: 1300px;
   display: flex;
   align-items: center;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .carousel-track-container {
@@ -145,7 +209,7 @@ body {
   border-radius: var(--border-radius);
   background-color: #e5e7eb;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  min-height: 500px; /* Altura generosa para el contenido */
+  max-height: 550px;
   display: flex;
   align-items: center;
 }
@@ -159,7 +223,6 @@ body {
 
 .carousel-slide {
   min-width: 100%;
-  padding: 8rem 3rem; /* Espaciado interno amplio */
   text-align: center;
   color: var(--text-dark);
   display: flex;
@@ -302,8 +365,8 @@ body {
   transform: translateY(-5px);
 }
 
-.area-icon {
-  font-size: 2.5rem;
+.area-icon img {
+  max-width: 60px;
   margin-bottom: 1rem;
 }
 
@@ -423,13 +486,22 @@ body {
   background-color: #1e232a;
 }
 
+.destacado-indexacion{
+    background-color: #e2e8f0;
+    color: #475569;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
 /* ==========================================================================
    VISTA - EQUIPO
    ========================================================================== */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text-dark); /* Asegura que el color contraste con el fondo */
+  color: var(--text-dark);
   text-align: center;
   margin-bottom: 2.5rem;
   padding-top: 1rem;
@@ -438,7 +510,6 @@ body {
 
 .team-grid {
   display: grid;
-  /* Máximo 3 tarjetas por fila con un ancho mínimo cómodo de 280px */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   max-width: 1200px;
@@ -446,7 +517,6 @@ body {
   padding: 1rem 0;
 }
 
-/* Limitar a un máximo estricto de 3 columnas en pantallas grandes */
 @media (min-width: 1024px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -495,7 +565,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Espacio para descripción breve / bio */
 .member-bio {
   font-size: 0.9rem;
   color: #475569;
@@ -503,12 +572,11 @@ body {
   margin-bottom: 1.2rem;
 }
 
-/* Redes / Enlaces del integrante */
 .member-socials {
   display: flex;
   gap: 0.8rem;
   justify-content: center;
-  margin-top: auto; /* Empuja los enlaces al final de la tarjeta */
+  margin-top: auto;
 }
 
 .member-socials a {
@@ -542,7 +610,7 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border-left: 5px solid var(--accent-color);
   display: grid;
-  grid-template-columns: 200px 1fr; /* Columna fija de 200px para la imagen */
+  grid-template-columns: 200px 1fr;
   gap: 2rem;
   padding: 2rem;
   align-items: center;
@@ -550,7 +618,6 @@ body {
 }
 
 .box_art_proyectos {
-    /*Tamaño a cargar para las imágenes: 200 x 200 px*/
   width: 200px;
   height: 200px;
   display: flex;
@@ -558,14 +625,14 @@ body {
   justify-content: center;
   overflow: hidden;
   border-radius: 8px;
-  background-color: transparent; /* Se elimina el fondo grisáceo */
+  background-color: transparent;
   margin: 0 auto;
 }
 
 .img_art_proyectos {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* O usa 'cover' si deseas que la imagen llene los 200x200px exactos sin bordes */
+  object-fit: contain;
   display: block;
 }
 
@@ -696,7 +763,8 @@ body {
   color: var(--text-muted);
 }
 
-.form_contact input {
+.form_contact input,
+.form_contact textarea {
   width: 100%;
   padding: 0.75rem;
   border-radius: 6px;
@@ -706,9 +774,11 @@ body {
   font-size: 1rem;
   outline: none;
   transition: border-color var(--transition-speed);
+  font-family: inherit;
 }
 
-.form_contact input:focus {
+.form_contact input:focus,
+.form_contact textarea:focus {
   border-color: var(--accent-color);
 }
 
@@ -735,92 +805,78 @@ body {
 .footer {
   background-color: var(--bg-dark);
   color: var(--text-muted);
-  padding: 0.5rem 8%;
+  padding: 1.5rem 8%;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: grid;
-  grid-template-rows: 80% 20%;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .datos_footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  padding-left: 5%;
+  gap: 1.5rem;
+  align-items: start;
 }
 
-.contacto_footer{
-    display: block;
-    font-size: 10px;
-    color: var(--text-light);
+.contacto_footer,
+.direccion_footer,
+.social_media {
+  font-size: 0.85rem;
+  color: var(--text-light);
 }
 
-.img_contacto_footer{
-    width: 5%;
-    margin-right: 1%;
-    filter: invert(65%);
+.social_media {
+  padding-left: 30%;
 }
 
-.contacto_footer p{
-    display: flex;
-    align-content: center;
-    font-size: 12px;
+.contacto_footer h1,
+.direccion_footer h1,
+.title_social_media h1 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
 }
 
-.direccion_footer{
-    font-size: 10px;
-    color: var(--text-light)
+.contacto_footer p,
+.direccion_footer p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--text-muted);
 }
 
-.direccion_footer p{
-    font-size: 12px;
-}
-
-.social_media{
-    display: block;
-    gap: 1rem;
-    padding-left: 30%;
-}
-
-.title_social_media h1{
-    font-size: 20px;
-    color: var(--text-light)
-}
-
-.btn_social_media{
-    padding-top: 3%;
-    display: flex;
-    gap: 10px;
-}
-
-.boton-social{
-    gap: 20px;
-}
-
-.boton-social img{
-  width: 36px;
-  height: 36px;
+.img_contacto_footer {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
   filter: invert(65%);
 }
 
-.boton-social:hover {
+.btn_social_media {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+.boton-social img {
+  width: 32px;
+  height: 32px;
+  filter: invert(65%);
+  transition: transform var(--transition-speed), opacity var(--transition-speed);
+}
+
+.boton-social:hover img {
   transform: scale(1.1);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-.boton-social:active {
-  transform: scale(0.95);
-}
-
-.derechos_footer{
-    padding: 1% 1%;
-    border-top: solid 1px;
-    border-color: rgba(255, 255, 255, 0.1);
-    font-size: 12px;
-    text-align: center;
+.derechos_footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -829,21 +885,22 @@ body {
 @media (max-width: 900px) {
   .spotlight-body_we,
   .spotlight-body,
-  .project-card {
+  .project-card,
+  .datos_footer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   .box_art_proyectos {
-    height: 180px;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
   }
 
-  .footer {
-    flex-direction: column;
-    text-align: center;
+  .social_media {
+    padding-left: 0;
   }
 
-  .contacto_footer p {
-    justify-content: center;
-  }
+  .prev-btn { left: 10px; }
+  .next-btn { right: 10px; }
 }
