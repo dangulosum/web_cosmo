@@ -8,7 +8,7 @@
 }
 
 :root {
-  --bg-dark: #2a3038;         /* Fondo oscuro para Hero / Header / Footer */
+  --bg-dark: #2a3038 /*#182123*/;         /* Fondo oscuro para Hero / Header / Footer */
   --bg-card-dark: #3a414b;    /* Tarjetas oscuras */
   --bg-light: #f4f6f8;        /* Fondo claro general */
   --bg-card-light: #ffffff;   /* Tarjetas sobre fondo claro */
@@ -179,20 +179,51 @@ body {
    SECCIÓN HERO (CARRUSEL DE NOTICIAS)
    ========================================================================== */
 .hero-section {
-  min-height: calc(100vh - 70px);
+  width: 100%;
+  /* Ocupa exactamente la pantalla completa menos la altura del header (70px) */
+  height: calc(100vh - 70px); 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 5%;
+  padding: 1.5rem 3%;
   background-color: var(--bg-dark);
+  box-sizing: border-box;
+  overflow: hidden; /* Garantiza que nada sobrepase la pantalla inicial */
 }
 
 .carousel-container {
   position: relative;
   width: 100%;
   max-width: 1300px;
+  /* La altura de la tarjeta se calcula restando el espacio de los indicadores y paddings */
+  height: calc(100vh - 160px); 
+  max-height: 600px; /* Límite para pantallas Ultra-Wide */
+  margin: 0 auto;
+}
+
+.carousel-track-container {
+  width: 100%;
+  height: 100%; /* Llama directamente al alto del contenedor para no sobrepasar */
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background-color: #0d1117;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-track {
   display: flex;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -200,48 +231,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  object-position: left center; /* Conserva la información del extremo izquierdo */
+  display: block;
 }
 
-.carousel-track-container {
-  width: 100%;
-  overflow: hidden;
-  border-radius: var(--border-radius);
-  background-color: #e5e7eb;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  max-height: 550px;
-  display: flex;
-  align-items: center;
-}
-
-.carousel-track {
-  display: flex;
-  list-style: none;
-  width: 100%;
-  transition: transform 0.4s ease-in-out;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  text-align: center;
-  color: var(--text-dark);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1.2rem;
-  letter-spacing: 1px;
-}
-
-.card-content p {
-  font-size: 1.2rem;
-  color: #4b5563;
-}
-
+/* Flechas sin hover de globo */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -260,18 +254,19 @@ body {
   color: var(--accent-color);
 }
 
-.prev-btn { left: -40px; }
-.next-btn { right: -40px; }
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
 
 .carousel-nav {
   display: flex;
   gap: 10px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  height: 12px; /* Altura fija para que no empuje el layout */
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: none;
   background-color: rgba(255, 255, 255, 0.3);
@@ -901,6 +896,23 @@ body {
     padding-left: 0;
   }
 
-  .prev-btn { left: 10px; }
-  .next-btn { right: 10px; }
+  .hero-section {
+    height: auto; /* Desactiva el full screen rígido en pantallas pequeñas */
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .carousel-container {
+    height: auto;
+    aspect-ratio: 4 / 3; /* Proporción limpia de tarjeta en celulares */
+    max-height: 400px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 0.2rem;
+  }
+
+  .prev-btn { left: 8px; }
+  .next-btn { right: 8px; }
 }

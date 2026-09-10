@@ -20,6 +20,8 @@ const pool = mysql.createPool({
   connectionLimit: 10
 });
 
+//COMENTAR LAS CREDENCIALES
+
 // ==========================================
 // 2. Endpoints de la API
 // ==========================================
