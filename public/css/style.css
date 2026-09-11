@@ -8,7 +8,7 @@
 }
 
 :root {
-  --bg-dark: #2a3038 /*#182123*/;         /* Fondo oscuro para Hero / Header / Footer */
+  --bg-dark: #000918 /*#2a3038*/;         /* Fondo oscuro para Hero / Header / Footer */
   --bg-card-dark: #3a414b;    /* Tarjetas oscuras */
   --bg-light: #f4f6f8;        /* Fondo claro general */
   --bg-card-light: #ffffff;   /* Tarjetas sobre fondo claro */
